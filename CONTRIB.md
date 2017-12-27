@@ -8,6 +8,31 @@ When you come to implement your new feature, you should branch off `develop` and
 
 ## Development Environment
 
+You can use our Docker or Vagrant/VirtualBox development environments.
+
+### Docker
+
+You will need to have Docker installed in order to use the Docker development environment.
+
+To build and run the development environment, simply `make dev`. Whenever you want to rebuild the containers, `make build` (you should need to do this rarely).
+
+To hop into the postgres container, you can do the following:
+
+```
+$ docker exec -it openoversight_postgres_1 /bin/bash
+# psql -d openoversight-dev -U openoversight
+```
+
+Similarly to hop into the web container:
+
+```
+$ docker exec -it openoversight_web_1 /bin/bash
+```
+
+Once you're done, `make stop` and `make clean` to stop and remove the containers respectively.
+
+### VirtualBox + Vagrant
+
 Our standard development environment is an Ubuntu 14 VM. We manage it with Vagrant, which means you'll need Vagrant and Virtualbox installed to start out.
 
 Make sure that vagrant and Virtualbox are installed, and then run:
